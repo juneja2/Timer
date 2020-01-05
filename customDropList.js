@@ -7,7 +7,6 @@ function appendDropDownValues(arr, start, end){
 			elem.appendChild(child);
 		}	
 	}
-	console.log("Hi");
 }
 var hours = document.createElement("select");
 var minutes = document.createElement("select");
@@ -18,8 +17,14 @@ appendDropDownValues(arr, 0, 24);
 
 appendDropDownValues(arr.slice(1, 3), 24, 60);
 
-timerSetting = document.getElementById("timerSetting");
+var timerSetting = document.getElementById("timerSetting");
+var button = document.createElement("BUTTON");
+button.innerHTML = "Start";
+arr.push(button);
 
-for (var elem of arr){
-	timerSetting.appendChild(elem);
+for (var i = 0; i < arr.length; i++){
+	timerSetting.appendChild(arr[i]);
+	if(i == arr.length - 2){ // Want to add a space between the time and button
+		timerSetting.appendChild(document.createTextNode(" "));
+	}
 }

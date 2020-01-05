@@ -6,7 +6,7 @@
 
 	/**Max width: 500px means that if the screen size(width) is less than or = 
 	  500px then don't center it display it on the entire screen*/
-	max-width: 500px;
+	max-width: 600px;
 	
 
 	background: #303030;
@@ -22,5 +22,9 @@ select{
 	width: 40px;
 	height: 30px;
 	padding: 5px;
+	border: 1px solid white;
+}
+button {
+	background-color: #4CAF50; /*Green*/
 	border: 1px solid white;
 }
