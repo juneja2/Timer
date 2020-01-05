@@ -1,0 +1,26 @@
+.content{
+	/** margin: auto To get the body in the center(horizontally) */
+	margin: auto; 
+	/** Padding how far inside the margin do you want to start from */
+	padding: 10px;
+
+	/**Max width: 500px means that if the screen size(width) is less than or = 
+	  500px then don't center it display it on the entire screen*/
+	max-width: 500px;
+	
+
+	background: #303030;
+	color: white;
+	
+	font-family: "Arial";
+	font-size: 40px;
+
+	text-align: center;
+}
+select{
+	display: inline-block;
+	width: 40px;
+	height: 30px;
+	padding: 5px;
+	border: 1px solid white;
+}
