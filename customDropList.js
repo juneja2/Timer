@@ -34,3 +34,7 @@ for (var i = 0; i < arr.length; i++){
 		timerSetting.appendChild(document.createTextNode(" "));
 	}
 }
+
+var p = document.createElement("p");
+p.setAttribute("id", "time");
+timerSetting.appendChild(p);

@@ -21,12 +21,13 @@ function showClock(){
 	minutes = parseInt(minutes.options[minutes.selectedIndex].value, 10);
 	seconds = parseInt(seconds.options[seconds.selectedIndex].value, 10);
 	
-
-	while(!(hours == 0 && minutes == 0 && seconds == 0)){
-		console.log(hours + ":" + minutes + ":" + seconds);
-		// setTimeout(console.clear, 1000);
+	setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
+}
+function clock(hours, minutes, seconds){
+	if(!(hours == 0 && minutes == 0 && seconds == 0)){
+		var p = document.getElementById("time");
+		p.textContent = hours + ":" + minutes + ":" + seconds;
 		[hours, minutes, seconds] = update(hours, minutes, seconds);
+		setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
 	}
-	/* There is some over head he**/
-
 }
