@@ -24,10 +24,20 @@ function showClock(){
 	setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
 }
 function clock(hours, minutes, seconds){
+	var p = document.getElementById("time");
+	p.textContent = hours + ":" + minutes + ":" + seconds;
 	if(!(hours == 0 && minutes == 0 && seconds == 0)){
-		var p = document.getElementById("time");
-		p.textContent = hours + ":" + minutes + ":" + seconds;
 		[hours, minutes, seconds] = update(hours, minutes, seconds);
 		setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
+	}
+	else{
+		var audio = document.createElement("audio");
+		audio.src = "5thSymphony.mp3";
+		audio.volume = 0.9;
+		audio.autoplay = true;
+		document.getElementById("timerSetting").appendChild(audio);
+		setInterval(() => {
+			p.style.visibility = (p.style.visibility == "hidden" ? "" : "hidden");
+		}, 500)
 	}
 }
