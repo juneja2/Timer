@@ -39,5 +39,5 @@ function clock(hours, minutes, seconds){
 		setInterval(() => {
 			p.style.visibility = (p.style.visibility == "hidden" ? "" : "hidden");
 		}, 500)
-	}
+	} 
 }
