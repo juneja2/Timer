@@ -21,7 +21,10 @@ function showClock(){
 	minutes = parseInt(minutes.options[minutes.selectedIndex].value, 10);
 	seconds = parseInt(seconds.options[seconds.selectedIndex].value, 10);
 	
-	setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
+	setTimeout(() => {$("select").hide();
+					  $("#startButton").text("Pause");
+					  clock(hours, minutes, seconds)}
+			   ,1000);
 }
 function clock(hours, minutes, seconds){
 	var p = document.getElementById("time");
@@ -31,6 +34,9 @@ function clock(hours, minutes, seconds){
 		setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
 	}
 	else{
+
+		/**Adding audio tag when the timer is finished*/
+		$("select").show();
 		var audio = document.createElement("audio");
 		audio.src = "5thSymphony.mp3";
 		audio.volume = 0.9;
