@@ -28,12 +28,24 @@ var timerSetting = document.getElementById("timerSetting");
 
 for (var i = 0; i < arr.length; i++){
 	arr[i].setAttribute("id", id_names[i]);
-	timerSetting.appendChild(arr[i]);
 
-	timerSetting.appendChild(document.createTextNode(" "));
-	if(i != arr.length - 1){ // Want to add a space between the time and button
-		timerSetting.appendChild(document.createTextNode(id_names[i] + " "));
+	// Everything goes in span so I can hide it while the timer is running
+	if(i != arr.length - 1){
+		let span = document.createElement("span");
+		span.appendChild(arr[i]);
+
+		span.appendChild(document.createTextNode(" "))
+	
+	 	// Want to add a space between the time and button
+		span.appendChild(document.createTextNode(id_names[i] + " "));
+		timerSetting.appendChild(span);
 	}
+	else{
+		/** I want to keep the button separate so I can hide all the spans
+		  * but button will still be visible for features like pause */
+		timerSetting.appendChild(arr[i]); 
+	}
+	
 }
 
 var p = document.createElement("p");

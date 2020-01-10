@@ -21,8 +21,9 @@ function showClock(){
 	minutes = parseInt(minutes.options[minutes.selectedIndex].value, 10);
 	seconds = parseInt(seconds.options[seconds.selectedIndex].value, 10);
 	
-	setTimeout(() => {$("select").hide();
+	setTimeout(() => {$("span").hide();
 					  $("#startButton").text("Pause");
+					  $("#startButton").attr("onclick", "pause()");
 					  clock(hours, minutes, seconds)}
 			   ,1000);
 }
@@ -34,8 +35,9 @@ function clock(hours, minutes, seconds){
 		setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
 	}
 	else{
-		/**Adding audio tag when the timer is finished*/
-		$("select").show();
+		$("span").show();
+		$("#startButton").text("Start");
+		$("#startButton").attr("onclick", "restart()");
 		/**Adding audio tag when the timer is finished*/
 		var audio = document.createElement("audio");
 		audio.src = "5thSymphony.mp3";
@@ -43,8 +45,14 @@ function clock(hours, minutes, seconds){
 		audio.autoplay = true;
 		document.getElementById("timerSetting").appendChild(audio);
 		/**Making finished timer aka 0:0:0 blink*/
-		setInterval(() => {
-			p.style.visibility = (p.style.visibility == "hidden" ? "" : "hidden");
-		}, 500)
+		let intervalId = setInterval(() => {
+				p.style.visibility = (p.style.visibility == "hidden" ? "" : "hidden");
+			}, 500)
 	}
+}
+function pause(){
+
+}
+function restart(){
+
 }
