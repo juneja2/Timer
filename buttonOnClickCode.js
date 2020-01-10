@@ -34,14 +34,15 @@ function clock(hours, minutes, seconds){
 		setTimeout(() => {clock(hours, minutes, seconds)}, 1000);
 	}
 	else{
-
 		/**Adding audio tag when the timer is finished*/
 		$("select").show();
+		/**Adding audio tag when the timer is finished*/
 		var audio = document.createElement("audio");
 		audio.src = "5thSymphony.mp3";
 		audio.volume = 0.9;
 		audio.autoplay = true;
 		document.getElementById("timerSetting").appendChild(audio);
+		/**Making finished timer aka 0:0:0 blink*/
 		setInterval(() => {
 			p.style.visibility = (p.style.visibility == "hidden" ? "" : "hidden");
 		}, 500)

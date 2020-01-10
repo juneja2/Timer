@@ -1,24 +1,51 @@
 .content{
-	/** margin: auto To get the body in the center(horizontally) */
-	margin: auto; 
+	/** Position: absolute means absolute to either the first non static
+	  * ancestor or the very first element i.e. html 
+	  * So this means postion the elemnts with class="content" absolute 
+	  * to the html tag and I want 0 distance from the top, bottom, left
+	  * and right. Give the elements with this class the width of 50% veiwport
+	  * width and height of 50% veiwport height and now automatically calculate
+	  * the margin to horizontally center. WHy does margin: auto center vertically?
+	  * Margin auto: set mragin-top and bottom to 0 but since we have positioned 
+	  * the elements as absolute and the browser has to compute these values
+	  * because this is out of normal layout and therefore it gives margin-top
+	  * and margin bottom equal values and therefore also centers it vertically
+	  * Good article on this:
+	  * https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/ */
+	position: absolute; 
+	top: 0; bottom: 0; left: 0; right: 0;
+
+	width: 50vw; height: 50vh;
+	margin: auto;
+
+	/**Max width is the max width the element can have.
+	  * For example if we resize the window then either the width
+	  * is going to be the width = min(width, max-width)
+	  * Since we set the width to 50% of viewport width*/
+	max-width: 500px;
+
+	
+	
 	/** Padding how far inside the margin do you want to start from */
 	padding: 10px;
 
-	/**Max width: 500px means that if the screen size(width) is less than or = 
-	  500px then don't center it display it on the entire screen*/
-	max-width: 600px;
+	
 	
 
 	background: #303030;
 	color: white;
 	
 	font-family: "Arial";
-	font-size: 40px;
+	font-size: 20px;
 
 	text-align: center;
 }
 select{
+	position: relative;
+	top: 0; bottom: 0; left: 0; right: 0;
+	margin: auto;
 	display: inline-block;
+
 	width: 40px;
 	height: 30px;
 	padding: 5px;

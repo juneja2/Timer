@@ -30,8 +30,9 @@ for (var i = 0; i < arr.length; i++){
 	arr[i].setAttribute("id", id_names[i]);
 	timerSetting.appendChild(arr[i]);
 
-	if(i == arr.length - 2){ // Want to add a space between the time and button
-		timerSetting.appendChild(document.createTextNode(" "));
+	timerSetting.appendChild(document.createTextNode(" "));
+	if(i != arr.length - 1){ // Want to add a space between the time and button
+		timerSetting.appendChild(document.createTextNode(id_names[i] + " "));
 	}
 }
 
